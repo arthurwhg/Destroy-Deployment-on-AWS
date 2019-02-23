@@ -9,8 +9,9 @@ pipeline {
     stage('Destroy') {
       steps {
         sh '''cd "/Users/artwang2/Documents/My Jar/terraform-provider-aws/examples/two-tier"
-terraform destroy -input=false > destroy.log
-'''
+touch ./yes
+echo "yes" > ./yes
+terraform destroy -input=false < yes > destroy.log'''
       }
     }
     stage('Done') {
