@@ -11,7 +11,9 @@ pipeline {
         sh '''cd "/Users/artwang2/Documents/My Jar/terraform-provider-aws/examples/two-tier"
 touch ./yes
 echo "yes" > ./yes
-terraform destroy -input=false < yes > destroy.log'''
+terraform destroy -input=false < yes > destroy.log
+rm ./yes
+'''
       }
     }
     stage('Done') {
